@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>母亲节快乐</title>
+
+<style>
+body{
+    margin:0;
+    height:100vh;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+    font-family:"Microsoft YaHei";
+}
+
+.card{
+    background:white;
+    padding:40px;
+    border-radius:25px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+    animation:float 3s ease-in-out infinite;
+}
+
+h1{
+    color:#ff4d6d;
+    font-size:42px;
+}
+
+p{
+    font-size:20px;
+    color:#555;
+    line-height:1.8;
+}
+
+button{
+    margin-top:20px;
+    padding:12px 30px;
+    border:none;
+    border-radius:50px;
+    background:#ff4d6d;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.1);
+}
+
+@keyframes float{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-10px);}
+    100%{transform:translateY(0);}
+}
+
+.heart{
+    position:absolute;
+    color:red;
+    animation:fall linear infinite;
+}
+
+@keyframes fall{
+    to{
+        transform:translateY(100vh);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h1>妈妈 ❤️</h1>
+
+    <p>
+        母亲节快乐！<br>
+        谢谢你一直照顾我。<br>
+        以后换我慢慢照顾你。
+    </p>
+
+    <button onclick="showMessage()">点一下</button>
+</div>
+
+<script>
+function showMessage(){
+    alert("你辛苦啦 ❤️");
+}
+
+function createHeart(){
+    const heart=document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML="❤";
+
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.fontSize=Math.random()*20+10+"px";
+    heart.style.animationDuration=Math.random()*3+2+"s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },5000);
+}
+
+setInterval(createHeart,300);
+</script>
+
+</body>
+</html>
